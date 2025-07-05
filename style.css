@@ -1,0 +1,257 @@
+/* === Reset & Base === */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+}
+
+body {
+  background-color: #222;
+  color: #e5e5ee;
+  overflow-x: hidden;
+}
+
+/* === Navbar Styles === */
+header {
+  background: #111;
+  border-bottom: 1px solid #333;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  user-select: none;
+}
+
+.logo i {
+  background: linear-gradient(45deg, #00c6ff, #007ced);
+  padding: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  color: white;
+  font-size: 24px;
+}
+
+/* Nav Links */
+nav .navlinks {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav .navlinks li a {
+  font-weight: 500;
+  font-size: 16px;
+  background: linear-gradient(to right, #00c6ff, #007ced);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+nav .navlinks li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #007ced;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+nav .navlinks li a:hover::after {
+  width: 100%;
+}
+
+nav .navlinks li a:hover {
+  transform: scale(1.05);
+}
+
+/* Toggle Button for Mobile */
+nav .togglebtn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+}
+
+nav .togglebtn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(45deg, #00c6ff, #007ced);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav .navlinks {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: #111;
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    z-index: 10;
+  }
+
+  nav .navlinks.show {
+    display: flex;
+  }
+
+  nav .navlinks li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  nav .togglebtn {
+    display: flex;
+  }
+}
+
+/* Toggle button active animation */
+nav .togglebtn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+nav .togglebtn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+nav .togglebtn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* === Hero Section === */
+.hero-header {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #222;
+}
+
+.wrapper {
+  width: 1280px;
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.hero-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 15px solid #444;
+  box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.hero-pic img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.hero-text {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-text h5 span.typing {
+  border-right: 2px solid #fff;
+  animation: blink 0.7s infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  color: #e5e5ee;
+  font-size: 16px;
+}
+
+@keyframes blink {
+  0% {
+    border-color: #fff;
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #fff;
+  }
+}
+
+/* Gradient text for name */
+.hero-text h1.gradient {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #00c6ff, #007ced, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 5s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.hero-text p {
+  color: #e5e5ee;
+}
+
+.btn-group {
+  margin: 30px 0;
+}
+
+.btn-group .btn {
+  border-color: #d5d5d5;
+  color: #fff;
+  background-color: #333;
+  padding: 12px 25px;
+  margin: 5px;
+  margin-right: 7px;
+  border-radius: 30px;
+  border: 2px solid #d5d5d5;
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.78);
+  text-transform: capitalize;
+  cursor: pointer;
